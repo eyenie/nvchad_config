@@ -47,6 +47,24 @@ local plugins = {
     end,
   },
   {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      'nvim-telescope/telescope-live-grep-args.nvim',
+    },
+    opts = {
+      extensions_list = {"live_grep_args"},
+    },
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "telescope")
+      local telescope = require "telescope"
+      opts = vim.tbl_deep_extend("force", require "custom.configs.telescope", opts or {})
+      telescope.setup(opts)
+      for _, ext in ipairs(opts.extensions_list) do
+        telescope.load_extension(ext)
+      end
+    end,
+  },
+  {
     'nvimdev/lspsaga.nvim',
     event = "VeryLazy",
     opts = {

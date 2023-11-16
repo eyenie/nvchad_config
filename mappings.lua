@@ -10,6 +10,17 @@ M.general = {
   }
 }
 
+M.telescope = {
+  plugin = true,
+  n = {
+    ["<leader>fw"] = { function() require("telescope").extensions.live_grep_args.live_grep_args() end, "Live grep" },
+    ["<leader>fu"] = { function() require("telescope-live-grep-args.shortcuts").grep_word_under_cursor() end, "Grep word under cursor" },
+  },
+  v = {
+    ["f"] = { function() require("telescope-live-grep-args.shortcuts").grep_visual_selection() end, "Grep selected text" },
+  }
+}
+
 M.dap = {
   plugin = true,
   n = {
