@@ -84,6 +84,10 @@ M.eyenie = {
       "<cmd> cprev <CR>",
       "previous error",
     },
+    ["<F10>"] = {
+      "<cmd> ClangdSwitchSourceHeader <CR>",
+      "Switch header/source",
+    },
   }
 }
 
